@@ -17,7 +17,7 @@ if [[ ! -z $origin && ! -z $upstream ]]; then
   echo -e "${PURPLE}${PWD##*/} PULL upstream/staging HARD RESET origin/staging${NC}"
   git checkout staging
   git pull upstream staging
-  git reset staging --hard
+  git reset upstream/staging --hard
   git push -f --no-verify
   gitk
 
