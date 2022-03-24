@@ -19,7 +19,6 @@ if [[ ! -z $origin && ! -z $upstream ]]; then
   git pull upstream staging
   git reset upstream/staging --hard
   git push -f --no-verify
-  gitk
 
   if [[ $cur_branch != 'staging' ]]; then
     echo -e "${CYAN}"
