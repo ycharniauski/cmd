@@ -7,26 +7,12 @@ NC='\033[0m'
 
 BFX_ROOT_REPO=$PWD  
 
-echo $BFX_ROOT_REPO
-
-has=$(git branch | grep $1)
-cur_branch=$(git rev-parse --abbrev-ref HEAD)
-
-if [[ ! -z $has && $cur_branch != ${1}  ]]; then
-  echo -e "${PURPLE}${PWD##*/} checkout ${1} ${NC}"
-  git checkout $1
-fi
+~/cmd/checkout.sh $1
 
 for lib in ./src/local_modules/*; do
   cd $lib
 
-  has=$(git branch | grep $1)
-  cur_branch=$(git rev-parse --abbrev-ref HEAD)
-
-  if [[ ! -z $has && $cur_branch != ${1}  ]]; then
-    echo -e "${CYAN}${PWD##*/}${NC} checkout ${PURPLE}${1}${NC}"
-    git checkout $1
-  fi
+  ~/cmd/checkout.sh $1
 
   cd $BFX_ROOT_REPO
 done
