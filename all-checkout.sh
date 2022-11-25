@@ -7,12 +7,12 @@ NC='\033[0m'
 
 BFX_ROOT_REPO=$PWD  
 
-~/cmd/checkout.sh $1
+~/cmd/checkout.sh $1 $2
 
 for lib in ./src/local_modules/*; do
   cd $lib
 
-  ~/cmd/checkout.sh $1
+  ~/cmd/checkout.sh $1 $2
 
   cd $BFX_ROOT_REPO
 done
