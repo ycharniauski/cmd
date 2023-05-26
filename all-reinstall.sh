@@ -1,6 +1,7 @@
 #!/bin/bash
 
 rm -rf ./node_modules
+npm cache clean --force
 npm install
 for lib in ./src/local_modules/*; do
 (

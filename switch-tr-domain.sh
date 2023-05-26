@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# echo DOMAIN=bitfinextr.com >> ./.env.development
+sed -i.bakup 's/export const bfxDomain = process.env.DOMAIN || getBfxDomain()/export const bfxDomain = DOMAINS.tr/' ./src/local_modules/bfxuilib/var/platform.js
+rm ./src/local_modules/bfxuilib/var/platform.js.bakup
+ 
 
-sed -i.bakup 's/export const bfxDomain = process.env.DOMAIN || getBfxDomain()/export const bfxDomain = DOMAINS.tr/' ./.env.development
-rm ./.env.development.bakup
+# echo DOMAIN=bitfinextr.com >> ./.env.development
