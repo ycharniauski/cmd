@@ -10,13 +10,18 @@ if [ ! -d './node_modules/@holepunchto' ]; then
   exit
 fi
 
-if [ ! -d '../keet-store' ]; then
-  echo -e "${RED}../keet-store not exists.${NC}"
+if [ -z "$1" ]; then
+  echo -e "${RED}no argument${NC}"
   exit
 fi
 
-rm -rf ./node_modules/@holepunchto/keet-store
-(cd ./node_modules/@holepunchto && ln -s ../../../keet-store keet-store)
-echo -e "${PURPLE}"
-ls -al ./node_modules/@holepunchto/keet-store
-echo -e "${NC}"
+if [ ! -d "../$1" ]; then
+  echo -e "${RED}../$1 not exists.${NC}"
+  exit
+else
+  rm -rf "./node_modules/@holepunchto/$1"
+  (cd ./node_modules/@holepunchto && ln -s "../../../$1" $1)
+  echo -e "${PURPLE}"
+  ls -al "./node_modules/@holepunchto/$1"
+  echo -e "${NC}"
+fi
