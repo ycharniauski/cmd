@@ -6,7 +6,7 @@ NC='\033[0m'
 
 NODE_VERSION="v18.15.0"
 
-STORE="~/keet/store/${NODE_VERSION}/${1}"
+STORE="~/keet/store/node${NODE_VERSION}-s${1}"
 
 unset NODE_OPTIONS
 source ~/.nvm/nvm.sh
