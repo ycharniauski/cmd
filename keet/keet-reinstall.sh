@@ -14,9 +14,12 @@ echo -e "${YELLOW}Update keet-store${NC}"
 
 echo -e "${YELLOW}Delete ./node_modules${NC}"
 rm -rf ./node_modules
+
 echo -e "${YELLOW}Delete package-lock.json${NC}"
 rm ./package-lock.json
+
 echo -e "${YELLOW}Install packages${NC}"
 npm i
+
 echo -e "${YELLOW}Create keet-store link${NC}"
 ~/cmd/keet/keet-create-symlinks.sh keet-store
