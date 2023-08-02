@@ -21,3 +21,14 @@ if [[ $origin == *"/bitfinexcom/"* && -z $upstream ]]; then
   fi
 fi
 
+if [[ $origin == *"/${GIT_USERNAME}/"* && -z $upstream ]]; then
+  if [[ -z $GIT_USERNAME ]]; then
+    echo -e "${RED}CAN'T CREATE UPSTREAM: PLEASE EXPORT \$GIT_USERNAME ENV VARIABLE ${NC}"
+  else
+    echo -e "${PURPLE}${PWD##*/} CREATE UPSTREAM${NC}"
+    newupstream=$(echo $origin | sed "s/${GIT_USERNAME}/bitfinexcom/g")
+    echo -e "${CYAN} REMOTE ADD upstream=${newupstream}${NC}"
+    git remote add upstream $newupstream
+  fi
+fi
+

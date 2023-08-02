@@ -26,7 +26,7 @@ else
     git pull upstream main
     git pull upstream --tags
     git reset upstream/main --hard
-    git push -f --no-verify
+    git push --set-upstream origin main -f --no-verify
 
     if [[ $cur_branch != 'main' ]]; then
       echo -e "${CYAN}"
