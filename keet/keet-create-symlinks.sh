@@ -20,7 +20,7 @@ if [ ! -d "../$1" ]; then
   exit
 else
   rm -rf "./node_modules/@holepunchto/$1"
-  (cd ./node_modules/@holepunchto && ln -s "../../../$1" $1)
+  (cd ./node_modules/@holepunchto && npm link "../../../$1" $1)
   echo -e "${PURPLE}"
   ls -al "./node_modules/@holepunchto/$1"
   echo -e "${NC}"
